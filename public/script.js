@@ -5,6 +5,15 @@ const socket = io();
 let roomId = prompt('Enter room ID to join:');
 socket.emit('join-room', roomId);
 
+// Listen for updates from other clients
+socket.on('update-tile', ({ tileId }) => {
+  const tile = document.getElementById(`bingo-tile-${tileId}`);
+  if (tile) {
+    // Apply the same toggle or reveal logic you want here
+       tile.style.border = '2px solid red';       
+  }
+});
+
 let tiles = [];
 
 function createSeededRandom(seed) {
@@ -114,6 +123,8 @@ function generateBingoCard(seedFunction) {
                     revealOrthogonalTiles(tile);
                     
                 }
+
+                socket.emit('tile-clicked', { roomId, tileId: parseInt(tileId) });
             }
         });
         if (startTilesId.includes(parseInt(tileId))) {
@@ -150,6 +161,8 @@ colorPicker.addEventListener('change', (event) => {
         }
     }
 });
+
+
 
 setSeedButton.addEventListener('click', () => {
     const seedInput = document.getElementById('seedInput').value;
