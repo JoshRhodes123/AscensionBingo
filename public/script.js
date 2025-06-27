@@ -2,15 +2,20 @@
 import bingoListOriginal from './super_mario_64_generator.js';
 
 const socket = io();
-let roomId = prompt('Enter room ID to join:');
+let roomId = prompt('Enter room ID to join (must be a number):');
 socket.emit('join-room', roomId);
 
 // Listen for updates from other clients
 socket.on('update-tile', ({ tileId }) => {
   const tile = document.getElementById(`bingo-tile-${tileId}`);
   if (tile) {
-    // Apply the same toggle or reveal logic you want here
-       tile.style.border = '2px solid red';       
+    if (tile.style.border === '2px solid red'){
+        tile.style.border = tileBorder;
+        
+    }
+    else{
+        tile.style.border = '2px solid red';
+    }      
   }
 });
 
@@ -148,7 +153,7 @@ const setSeedButton = document.getElementById('setSeedButton');
 
 let bingoList = bingoListOriginal
 let bingoCard = document.querySelector('.bingo-card');
-let defaultSeedFunction = createSeededRandom(69423); 
+let defaultSeedFunction = createSeededRandom(roomId); 
 let clickedTileBackground = 'black';
 
 colorPicker.addEventListener('change', (event) => {

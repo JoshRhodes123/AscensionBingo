@@ -169,22 +169,7 @@ bingoListOriginal[12] = [{
     name: "Get Explorer in Cavern Lake",
     types: ["hundredcoin"]
 }];
-bingoListOriginal[13] = [{
-    name: "Race Through Downtown WDW",
-    types: ["WDW", "vanishcap"]
-}, {
-    name: "100 Coin Star in HMC",
-    types: ["HMC"]
-}, {
-    name: "100 Coin Star in THI",
-    types: ["THI"]
-}, {
-    name: "100 Coin Star in DDD",
-    types: ["DDD"]
-}, {
-    name: "4 Stars each from BOB and CCM",
-    types: ["BOB", "CCM"]
-}];
+bingoListOriginal[13] = [];
 bingoListOriginal[14] = [{
     name: "Get a Quantum Idol or Explorer",
     types: ["RR"]
@@ -194,9 +179,6 @@ bingoListOriginal[14] = [{
 }, {
     name: "Get Shaman in The Great Tree",
     types: ["lives"]
-}, {
-    name: "100 Coin Star in BBH",
-    types: ["BBH"]
 }, {
     name: "Get Shaman in Plane Cockpit",
     types: ["cannons"]
